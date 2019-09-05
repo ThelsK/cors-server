@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-const port = process.env.PORT || 4000
+app.use(require("cors")())
 
 const router = new express.Router()
 router.get("/test", (req, res, next) => {
@@ -8,4 +8,5 @@ router.get("/test", (req, res, next) => {
 })
 app.use(router)
 
+const port = process.env.PORT || 4000
 app.listen(port, () => console.log(`Listening on :${port}`))
